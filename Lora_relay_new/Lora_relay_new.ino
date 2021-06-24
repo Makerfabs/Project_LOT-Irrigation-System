@@ -18,7 +18,7 @@ const int SPI_MISO = 12;
 const int SPI_SCK = 13;
 
 //SX1278 radio = new Module(LORA_CS, DIO0, LORA_RST, SPI, SPISettings());
-SX1278 radio = new Module(LORA_CS, DIO0, LORA_RST, DIO1, SPI, SPISettings());
+SX1276 radio = new Module(LORA_CS, DIO0, LORA_RST, DIO1, SPI, SPISettings());
 //SX1278 radio = new Module(LORA_CS, DIO0, LORA_RST,DIO1);
 
 // or using RadioShield
@@ -35,7 +35,7 @@ void setup()
 
     // initialize SX1278 with default settings
     Serial.print(F("[SX1278] Initializing ... "));
-    int state = radio.begin();
+    int state = radio.begin(868.0);
     if (state == ERR_NONE)
     {
         Serial.println(F("success!"));
